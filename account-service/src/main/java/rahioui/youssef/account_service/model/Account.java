@@ -1,5 +1,7 @@
 package rahioui.youssef.account_service.model;
 
+import java.math.BigDecimal;
+
 import org.hibernate.validator.constraints.UUID;
 
 import jakarta.persistence.Entity;
@@ -15,11 +17,11 @@ public class Account {
 
   @UUID
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long Id;
+  private UUID Id;
 
   private String customerReference;
-  private Boolean status;
+  private AccountStatus status;
   private String currency;
-  private Double balance;
+  private BigDecimal balance;
 
 }
