@@ -8,10 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import rahioui.youssef.account_service.model.Account;
 import rahioui.youssef.account_service.service.AccountService;
 
@@ -26,7 +26,7 @@ public class AccountRestController {
 
   @PostMapping
   public ResponseEntity<AccountResponse> create(@RequestBody CreateAccountRequest request) {
-    Account account = accountService.createAccount(request.customerReference, request.currency,
+    Account account = accountService.createAccount(request.customerReference(), request.currency(),
         request.openingBalance());
 
     return ResponseEntity.created(URI.create("/accounts/" + account.getId())).body(AccountResponse.from(account));
