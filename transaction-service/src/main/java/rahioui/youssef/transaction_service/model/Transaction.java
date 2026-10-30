@@ -1,13 +1,13 @@
 package rahioui.youssef.transaction_service.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
-
-import org.hibernate.validator.constraints.UUID;
+import java.time.Instant;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,8 +19,8 @@ public class Transaction {
   /**
    *
    */
-  @UUID
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
 
   private UUID accountId;
@@ -28,6 +28,6 @@ public class Transaction {
   private String currency;
   private String merchantCategory;
   private String country;
-  private Date createdAt;
+  private Instant createdAt;
 
 }

@@ -2,11 +2,14 @@ package rahioui.youssef.account_service.model;
 
 import java.math.BigDecimal;
 
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,12 +18,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Account {
 
-  @UUID
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private UUID Id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.UUID)
+  private UUID id;
 
   private String customerReference;
+
+  @Enumerated(EnumType.STRING)
   private AccountStatus status;
+
   private String currency;
   private BigDecimal balance;
 
