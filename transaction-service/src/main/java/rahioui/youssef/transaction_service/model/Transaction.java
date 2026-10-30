@@ -5,6 +5,8 @@ import java.time.Instant;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -22,8 +24,11 @@ public class Transaction {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
-
   private UUID accountId;
+
+  @Enumerated(EnumType.STRING)
+  private TransactionType type;
+
   private BigDecimal amount;
   private String currency;
   private String merchantCategory;
