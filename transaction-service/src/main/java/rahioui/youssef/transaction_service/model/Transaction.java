@@ -18,9 +18,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Transaction {
 
-  /**
-   *
-   */
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private UUID id;
@@ -34,5 +31,7 @@ public class Transaction {
   private String merchantCategory;
   private String country;
   private Instant createdAt;
+
+  private UUID transferId;
 
 }
