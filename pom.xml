@@ -12,6 +12,7 @@
   <modules>
     <module>account-service</module>
     <module>transaction-service</module>
+    <module>chatbot-service</module>
   </modules>
 	<groupId>rahioui.youssef</groupId>
 	<artifactId>bank</artifactId>
