@@ -1,0 +1,10 @@
+main { max-width: 640px; margin: 3rem auto; padding: 0 1rem; }
+section { border: 1px solid #d5d9e2; border-radius: 10px; padding: 1.25rem; margin: 1.5rem 0; }
+form { display: flex; flex-direction: column; gap: .7rem; }
+label { font-weight: 600; }
+input, textarea { padding: .7rem; font: inherit; border: 1px solid #9da7b6; border-radius: 5px; }
+button { align-self: flex-start; padding: .7rem 1.2rem; border: 0; border-radius: 5px; background: #174ea6; color: white; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+code { overflow-wrap: anywhere; }
+.answer { background: #eff6ff; padding: 1rem; border-radius: 5px; }
+.error { color: #a11; }

@@ -1,0 +1,40 @@
+<main>
+  <h1>Bank assistant</h1>
+  <p>Create a test account, then ask the assistant about its balance.</p>
+
+  <section>
+    <h2>Create an account</h2>
+    <form (ngSubmit)="createAccount()">
+      <label for="customer">Customer reference</label>
+      <input id="customer" name="customer" [(ngModel)]="customerReference" required placeholder="customer-1" />
+
+      <label for="balance">Opening balance (EUR)</label>
+      <input id="balance" name="balance" type="number" min="0" step="0.01" [(ngModel)]="openingBalance" required />
+
+      <button type="submit" [disabled]="creatingAccount()">
+        {{ creatingAccount() ? 'Creating…' : 'Create account' }}
+      </button>
+    </form>
+    @if (accountId()) {
+      <p>Account ID: <code>{{ accountId() }}</code></p>
+    }
+  </section>
+
+  <section>
+    <h2>Ask the assistant</h2>
+    <form (ngSubmit)="ask()">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" [(ngModel)]="message" rows="4"
+        placeholder="What is the balance of account ...?" required></textarea>
+      <button type="submit" [disabled]="sendingMessage()">
+        {{ sendingMessage() ? 'Asking…' : 'Send' }}
+      </button>
+    </form>
+    @if (answer()) {
+      <p class="answer"><strong>Assistant:</strong> {{ answer() }}</p>
+    }
+    @if (error()) {
+      <p role="alert" class="error">{{ error() }}</p>
+    }
+  </section>
+</main>
