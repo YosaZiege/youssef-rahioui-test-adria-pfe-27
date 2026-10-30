@@ -1,6 +1,6 @@
 package rahioui.youssef.account_service.repository;
 
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import rahioui.youssef.account_service.model.Account;
